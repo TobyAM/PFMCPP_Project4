@@ -195,9 +195,9 @@ struct FloatType
     FloatType& pow(const IntType&);
     FloatType& pow(float rhs);
 
-    private:
-        float* value = nullptr;
-        FloatType& powInternal(const float exp);
+private:
+    float* value = nullptr;
+    FloatType& powInternal(const float exp);
 };
 
 struct DoubleType
@@ -220,9 +220,9 @@ struct DoubleType
     DoubleType& pow(const IntType&); 
     DoubleType& pow(double rhs);
 
-    private:
-        double* value = nullptr;
-        DoubleType& powInternal(const double exp);
+private:
+    double* value = nullptr;
+    DoubleType& powInternal(const double exp);
         
 };
 
@@ -246,9 +246,9 @@ struct IntType
     IntType& pow(const IntType&);
     IntType& pow(int rhs);
 
-    private:
-        int* value = nullptr;
-        IntType& powInternal(const int exp);
+private:
+    int* value = nullptr;
+    IntType& powInternal(const int exp);
 };
 
 FloatType& FloatType::add( float rhs )
@@ -416,17 +416,9 @@ struct Point
 {
     Point(float a, float b) : x(a), y(b) {}
 
-    Point(const FloatType& a, const FloatType& b) :
-    x(static_cast<float>(a)),
-    y(static_cast<float>(b)) {}
-
-    Point(const IntType& a, const IntType& b) :
-    x(static_cast<int>(a)),
-    y(static_cast<int>(b)) {}
-
-    Point(const DoubleType& a, const DoubleType& b) :
-    x(static_cast<float>(a)),
-    y(static_cast<float>(b)) {}
+    Point(const FloatType& a, const FloatType& b) : Point((static_cast<float>(a)), (static_cast<float>(b))) {}
+    Point(const IntType& a, const IntType& b) : Point((static_cast<float>(a)), (static_cast<float>(b))) {}
+    Point(const DoubleType& a, const DoubleType& b) : Point((static_cast<float>(a)), (static_cast<float>(b))) {}
 
     Point& multiply(float m)
     {
